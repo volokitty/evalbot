@@ -1,16 +1,24 @@
 package calculator
 
-import "fmt"
-
 func Calculate(infixExpr string) (string, error) {
 	lexer := newLexer(infixExpr)
-	tokens, err := lexer.lex()
+	tokens, lexErr := lexer.lex()
 
-	if err != nil {
-		fmt.Println(err)
+	if lexErr != nil {
+		return "", lexErr
 	}
 
-	fmt.Println(tokens)
-	fmt.Println(infixToRPN(tokens))
-	return "", nil
+	rpn, infixToRPNErr := infixToRPN(tokens)
+
+	if infixToRPNErr != nil {
+		return "", infixToRPNErr
+	}
+
+	result, evalErr := evalRPN(rpn)
+
+	if evalErr != nil {
+		return "", evalErr
+	}
+
+	return result, nil
 }
