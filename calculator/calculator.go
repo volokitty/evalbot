@@ -11,5 +11,6 @@ func Calculate(infixExpr string) (string, error) {
 	}
 
 	fmt.Println(tokens)
+	fmt.Println(infixToRPN(tokens))
 	return "", nil
 }

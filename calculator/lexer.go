@@ -93,7 +93,7 @@ func (l *lexer) lex() ([]string, error) {
 		}
 
 		if l.nextState == unknown {
-			return tokens, fmt.Errorf("unknown character: %c", rune(l.expr[pos-1]))
+			return nil, fmt.Errorf("unknown character: %c", rune(l.expr[pos-1]))
 		}
 
 		l.state = l.nextState
