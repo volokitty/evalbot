@@ -4,7 +4,12 @@ import "fmt"
 
 func Calculate(infixExpr string) (string, error) {
 	lexer := newLexer(infixExpr)
-	tokens, _ := lexer.lex()
+	tokens, err := lexer.lex()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	fmt.Println(tokens)
 	return "", nil
 }
