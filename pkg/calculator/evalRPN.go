@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/golang-collections/collections/stack"
-	"github.com/volokitty/evalbot/utils"
+	"github.com/volokitty/evalbot/pkg/utils"
 )
 
 func evalRPN(tokens []string) (string, error) {

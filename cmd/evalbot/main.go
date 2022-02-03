@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/volokitty/evalbot/calculator"
+	"github.com/volokitty/evalbot/pkg/calculator"
 )
 
 func main() {
